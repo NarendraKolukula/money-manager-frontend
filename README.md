@@ -1,0 +1,204 @@
+# Money Manager - Personal Finance Application
+
+A comprehensive personal finance management application to track income, expenses, and manage accounts with ease.
+
+![Money Manager](https://img.shields.io/badge/Money-Manager-blue)
+![React](https://img.shields.io/badge/React-19.2-61dafb)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-green)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1-38B2AC)
+
+## 🚀 Features
+
+### Dashboard
+- **Weekly/Monthly/Yearly Views**: Toggle between different time periods
+- **Income vs Expense Charts**: Visual bar charts for comparison
+- **Category Pie Charts**: See expense distribution by category
+- **Summary Cards**: Quick view of total income, expense, and balance
+
+### Transaction Management
+- **Add Income/Expense**: Easy modal for adding transactions
+- **Categories**: Fuel, Movie, Food, Loan, Medical, Shopping, Transport, Utilities, Entertainment, Education, and more
+- **Divisions**: Classify transactions as Office or Personal
+- **Date & Time Tracking**: Full timestamp for each transaction
+- **12-Hour Edit Window**: Edit/delete transactions within 12 hours of creation
+
+### Filtering & Search
+- **Filter by Division**: Office, Personal, or All
+- **Filter by Category**: Any available category
+- **Date Range Filter**: Track transactions between two specific dates
+
+### Account Management
+- **Multiple Accounts**: Cash, Bank Account, Credit Card
+- **Account Balances**: Real-time balance tracking
+- **Transfers**: Move money between accounts
+- **Transfer History**: Complete record of all transfers
+
+### Reports & Summary
+- **Category Summary**: See totals for each category
+- **Period Comparison**: Compare income/expense across periods
+- **Visual Charts**: Interactive Recharts visualizations
+
+## 📁 Project Structure
+
+```
+money-manager/
+├── frontend/                 # React Frontend
+│   ├── src/
+│   │   ├── components/       # React components
+│   │   ├── context/          # React Context for state management
+│   │   ├── data/             # Initial data
+│   │   ├── services/         # API service for backend
+│   │   ├── types/            # TypeScript types
+│   │   └── utils/            # Utility functions
+│   ├── index.html
+│   └── package.json
+│
+└── backend/                  # Spring Boot Backend
+    ├── src/main/java/com/moneymanager/
+    │   ├── config/           # Configuration classes
+    │   ├── controller/       # REST Controllers
+    │   ├── dto/              # Data Transfer Objects
+    │   ├── exception/        # Custom exceptions
+    │   ├── model/            # Entity models
+    │   ├── repository/       # MongoDB repositories
+    │   └── service/          # Business logic
+    ├── src/main/resources/
+    │   └── application.properties
+    └── pom.xml
+```
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React 19** with TypeScript
+- **Vite** for fast development
+- **Tailwind CSS 4** for styling
+- **Recharts** for data visualization
+- **Lucide React** for icons
+- **date-fns** for date handling
+
+### Backend
+- **Java 17**
+- **Spring Boot 3.2**
+- **Spring Data MongoDB**
+- **MongoDB Atlas**
+- **Lombok** for reducing boilerplate
+- **SpringDoc OpenAPI** for API documentation
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ and npm
+- Java 17+
+- Maven 3.6+
+- MongoDB Atlas account (or local MongoDB)
+
+### Backend Setup
+
+1. Navigate to backend directory:
+```bash
+cd backend
+```
+
+2. Configure MongoDB in `src/main/resources/application.properties`:
+```properties
+spring.data.mongodb.uri=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/money_manager
+```
+
+3. Run the Spring Boot application:
+```bash
+./mvnw spring-boot:run
+```
+
+The backend will start on `http://localhost:8080`
+
+### Frontend Setup
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start development server:
+```bash
+npm run dev
+```
+
+The frontend will start on `http://localhost:5173`
+
+### Using Without Backend
+
+The frontend works standalone using localStorage for data persistence. This is useful for:
+- Demo purposes
+- Quick testing
+- Offline usage
+
+To use with the backend, the API service in `src/services/api.ts` is ready to connect.
+
+## 📚 API Documentation
+
+When the backend is running, access:
+- **Swagger UI**: http://localhost:8080/swagger-ui.html
+- **OpenAPI JSON**: http://localhost:8080/api-docs
+
+### Main Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `GET /api/transactions` | Get all transactions with filters |
+| `POST /api/transactions` | Create new transaction |
+| `PUT /api/transactions/{id}` | Update transaction |
+| `DELETE /api/transactions/{id}` | Delete transaction |
+| `GET /api/accounts` | Get all accounts |
+| `POST /api/transfers` | Create transfer between accounts |
+| `GET /api/dashboard/summary/monthly` | Get monthly summary |
+| `GET /api/categories` | Get all categories |
+
+## 🎨 Screenshots
+
+### Dashboard
+- Summary cards showing income, expense, and balance
+- Bar chart comparing income vs expense over time
+- Pie chart showing expense breakdown by category
+
+### Transaction History
+- Filterable list of all transactions
+- Edit/delete capability within 12 hours
+- Visual indicators for editable transactions
+
+### Accounts
+- Account cards with current balances
+- Transfer money between accounts
+- Transfer history
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_API_URL=http://localhost:8080/api
+```
+
+### MongoDB Atlas Setup
+
+1. Create account at [MongoDB Atlas](https://www.mongodb.com/atlas)
+2. Create a new cluster
+3. Create database user
+4. Whitelist your IP address
+5. Get connection string
+6. Update `application.properties`
+
+## 📝 License
+
+MIT License - feel free to use this project for learning or personal use.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+Made with ❤️ for personal finance management
