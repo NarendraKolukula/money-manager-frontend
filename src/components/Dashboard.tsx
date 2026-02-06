@@ -1,3 +1,4 @@
+import { API_URL } from './config';
 import { useState, useMemo } from 'react';
 import { useMoneyContext } from '../context/MoneyContext';
 import { ViewPeriod } from '../types';

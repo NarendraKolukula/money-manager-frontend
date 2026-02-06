@@ -1,3 +1,4 @@
+import { API_URL } from './config';
 import { useState } from 'react';
 import { MoneyProvider } from './context/MoneyContext';
 import { Sidebar } from './components/Sidebar';
@@ -97,10 +98,26 @@ function AppContent() {
   );
 }
 
-export function App() {
-  return (
-    <MoneyProvider>
-      <AppContent />
-    </MoneyProvider>
-  );
+
+
+function App() {
+
+    const fetchTransactions = async () => {
+        try {
+            const response = await fetch(`${API_URL}/api/transactions`);
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
+
+    return (
+        <div>
+            <h1>Money Manager</h1>
+            <button onClick={fetchTransactions}>Load Transactions</button>
+        </div>
+    );
 }
+
+export default App;
