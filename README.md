@@ -127,6 +127,52 @@ npm run dev
 
 The frontend will start on `http://localhost:5173`
 
+## 🌐 Deployment to GitHub Pages
+
+### Prerequisites
+- Repository created on GitHub
+- GitHub Pages enabled in repository settings
+
+### Deployment Steps
+
+1. Build the application:
+```bash
+npm run build
+```
+
+2. Deploy to GitHub Pages:
+```bash
+npm run deploy
+```
+
+The deployment script will:
+- Build the production version
+- Create a `.nojekyll` file to prevent Jekyll processing
+- Push the `dist` folder to the `gh-pages` branch
+- Make the site available at `https://[username].github.io/[repository-name]/`
+
+### Important Configuration
+
+The `vite.config.ts` is configured with the correct base path:
+```typescript
+base: '/money-manager-frontend/'
+```
+
+Ensure this matches your repository name. If your repository name is different, update this value in `vite.config.ts`.
+
+### Troubleshooting
+
+**Blank Page Issue:**
+- ✅ Removed `viteSingleFile` plugin (causes issues with GitHub Pages)
+- ✅ Added `.nojekyll` file to prevent Jekyll processing
+- ✅ Configured correct base path in `vite.config.ts`
+
+If you still see a blank page:
+1. Check GitHub Pages settings (Settings → Pages)
+2. Ensure the source is set to `gh-pages` branch
+3. Verify the base path matches your repository name
+4. Clear browser cache and hard refresh (Ctrl+Shift+R)
+
 ### Using Without Backend
 
 The frontend works standalone using localStorage for data persistence. This is useful for:
