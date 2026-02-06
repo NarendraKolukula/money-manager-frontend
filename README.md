@@ -173,6 +173,24 @@ If you still see a blank page:
 3. Verify the base path matches your repository name
 4. Clear browser cache and hard refresh (Ctrl+Shift+R)
 
+**"Your local changes would be overwritten" Error:**
+
+If you encounter this error during deployment:
+```
+error: Your local changes to the following files would be overwritten by checkout:
+        index.html
+```
+
+**Solution:** The deploy script now uses the `--add` flag to prevent this issue:
+```bash
+npm run deploy  # Uses: gh-pages -d dist --dotfiles --add --no-cache
+```
+
+If the error persists:
+1. Ensure your working directory is clean: `git status`
+2. Commit or stash any uncommitted changes before deploying
+3. Clear gh-pages cache: `rm -rf node_modules/.cache/gh-pages`
+
 **"Filename too long" Error on Windows:**
 
 If you encounter this error during deployment:

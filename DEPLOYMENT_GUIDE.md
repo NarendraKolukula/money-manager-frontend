@@ -77,7 +77,59 @@ rmdir /s /q node_modules\.cache\gh-pages
 npm run deploy
 ```
 
-### 2. Blank Page After Deployment
+### 2. "Your local changes would be overwritten" Error
+
+**Problem:**
+```
+error: Your local changes to the following files would be overwritten by checkout:
+        index.html
+Please commit your changes or stash them before you switch branches.
+Aborting
+```
+
+**Root Cause:**
+- The `gh-pages` package needs to checkout/switch to the gh-pages branch during deployment
+- It finds uncommitted changes to files in the working directory
+- Git refuses to checkout to avoid losing local changes
+
+**Solution:**
+
+The deploy script has been updated to use the `--add` flag:
+```json
+"deploy": "gh-pages -d dist --dotfiles --add --no-cache"
+```
+
+**What the flags do:**
+- `--dotfiles`: Includes dotfiles like `.nojekyll` in deployment
+- `--add`: Only adds new files, doesn't remove existing ones (prevents checkout conflicts)
+- `--no-cache`: Forces a fresh deployment without using cache
+
+**If you still encounter this error:**
+
+1. **Ensure working directory is clean before deploying:**
+   ```bash
+   git status
+   # If there are uncommitted changes, commit or stash them
+   git add .
+   git commit -m "Save changes before deploy"
+   # Then deploy
+   npm run deploy
+   ```
+
+2. **Clear the gh-pages cache:**
+   ```bash
+   rm -rf node_modules/.cache/gh-pages
+   npm run deploy
+   ```
+
+3. **Use git stash if you have temporary changes:**
+   ```bash
+   git stash
+   npm run deploy
+   git stash pop
+   ```
+
+### 3. Blank Page After Deployment
 
 **Problem:** The site loads but shows only a white/blank page.
 

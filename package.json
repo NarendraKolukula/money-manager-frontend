@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist --no-cache"
+    "deploy": "gh-pages -d dist --dotfiles --add --no-cache"
   },
   "dependencies": {
     "@types/uuid": "^10.0.0",
