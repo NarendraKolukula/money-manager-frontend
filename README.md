@@ -173,6 +173,42 @@ If you still see a blank page:
 3. Verify the base path matches your repository name
 4. Clear browser cache and hard refresh (Ctrl+Shift+R)
 
+**"Filename too long" Error on Windows:**
+
+If you encounter this error during deployment:
+```
+error: unable to create file ...: Filename too long
+fatal: unable to checkout working tree
+```
+
+This happens when:
+- Windows has a default MAX_PATH limit of 260 characters
+- The gh-pages package clones the repository to a cache directory
+- Long paths in node_modules exceed this limit
+
+**Solutions:**
+1. ✅ Ensure `node_modules` is in `.gitignore` and not committed to git
+2. ✅ Run `npm run deploy` which uses `--no-cache` flag
+3. If the error persists, enable long path support in Windows:
+   ```powershell
+   # Run as Administrator
+   git config --system core.longpaths true
+   ```
+4. Alternative: Use GitHub Actions for deployment (see below)
+
+**Windows Long Path Configuration:**
+
+Enable long path support in Windows 10/11:
+1. Open Registry Editor (regedit)
+2. Navigate to: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem`
+3. Set `LongPathsEnabled` to `1`
+4. Restart your computer
+
+Or use PowerShell (run as Administrator):
+```powershell
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+```
+
 ### Using Without Backend
 
 The frontend works standalone using localStorage for data persistence. This is useful for:
