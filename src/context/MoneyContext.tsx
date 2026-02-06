@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { v4 as uuidv4 } from 'uuid';
 import { Transaction, Transfer, Account, Category, FilterOptions, TransactionType } from '../types';
 import { defaultCategories, defaultAccounts, sampleTransactions, sampleTransfers } from '../data/initialData';
+import { API_URL } from '../config';
 
 interface MoneyContextType {
   transactions: Transaction[];
