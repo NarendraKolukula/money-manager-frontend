@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d60cceb-f0a2-4b4b-a375-88797713832e" name="Changes" comment="Minor changes to deploy" />
+    <list default="true" id="3d60cceb-f0a2-4b4b-a375-88797713832e" name="Changes" comment="Minor changes to deploy">
+      <change beforePath="$PROJECT_DIR$/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/MoneyContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/MoneyContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,7 +146,7 @@
       <workItem from="1770219042697" duration="1274000" />
       <workItem from="1770220860113" duration="1109000" />
       <workItem from="1770224973737" duration="1855000" />
-      <workItem from="1770372656670" duration="4526000" />
+      <workItem from="1770372656670" duration="5811000" />
     </task>
     <task id="LOCAL-00001" summary="Next Commit">
       <option name="closed" value="true" />
@@ -200,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770376310818</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Minor changes to deploy">
+      <option name="closed" value="true" />
+      <created>1770380075252</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1770380075252</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
