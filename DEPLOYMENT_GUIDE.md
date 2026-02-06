@@ -106,7 +106,25 @@ The deploy script has been updated to use the `--add` flag:
 
 **If you still encounter this error:**
 
-1. **Ensure working directory is clean before deploying:**
+1. **First, ensure you have the latest version with the fix:**
+   ```bash
+   git pull origin main  # or your branch name
+   npm install  # Update dependencies
+   ```
+
+2. **Verify your deploy script includes the flags:**
+   ```bash
+   npm run deploy --dry-run  # Or check package.json
+   # Should show: gh-pages -d dist --dotfiles --add --no-cache
+   ```
+
+3. **Clear the gh-pages cache and rebuild:**
+   ```bash
+   npm run clean  # Removes dist and gh-pages cache
+   npm run deploy
+   ```
+
+4. **Ensure working directory is clean before deploying:**
    ```bash
    git status
    # If there are uncommitted changes, commit or stash them
@@ -116,17 +134,18 @@ The deploy script has been updated to use the `--add` flag:
    npm run deploy
    ```
 
-2. **Clear the gh-pages cache:**
-   ```bash
-   rm -rf node_modules/.cache/gh-pages
-   npm run deploy
-   ```
-
-3. **Use git stash if you have temporary changes:**
+5. **Use git stash if you have temporary changes:**
    ```bash
    git stash
    npm run deploy
    git stash pop
+   ```
+
+6. **If the error persists, manually clean the cache:**
+   ```bash
+   rm -rf node_modules/.cache/gh-pages
+   rm -rf dist
+   npm run deploy
    ```
 
 ### 3. Blank Page After Deployment

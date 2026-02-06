@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build && touch dist/.nojekyll",
     "lint": "eslint .",
     "preview": "vite preview",
+    "clean": "rm -rf dist node_modules/.cache/gh-pages",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist --dotfiles --add --no-cache"
   },

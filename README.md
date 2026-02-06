@@ -145,6 +145,12 @@ npm run build
 npm run deploy
 ```
 
+3. (Optional) If you encounter issues, clean and redeploy:
+```bash
+npm run clean  # Removes dist and cache
+npm run deploy
+```
+
 The deployment script will:
 - Build the production version
 - Create a `.nojekyll` file to prevent Jekyll processing
@@ -181,15 +187,24 @@ error: Your local changes to the following files would be overwritten by checkou
         index.html
 ```
 
-**Solution:** The deploy script now uses the `--add` flag to prevent this issue:
+**Quick Fix:**
+```bash
+npm run clean   # Clear dist and gh-pages cache
+npm run deploy  # Redeploy
+```
+
+**Solution:** The deploy script uses the `--add` flag to prevent this issue:
 ```bash
 npm run deploy  # Uses: gh-pages -d dist --dotfiles --add --no-cache
 ```
 
 If the error persists:
-1. Ensure your working directory is clean: `git status`
-2. Commit or stash any uncommitted changes before deploying
-3. Clear gh-pages cache: `rm -rf node_modules/.cache/gh-pages`
+1. Pull the latest code: `git pull`
+2. Ensure working directory is clean: `git status`
+3. Commit or stash any uncommitted changes before deploying
+4. Try the clean script: `npm run clean && npm run deploy`
+
+See `DEPLOYMENT_GUIDE.md` for more detailed troubleshooting.
 
 **"Filename too long" Error on Windows:**
 
