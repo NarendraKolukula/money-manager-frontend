@@ -1,4 +1,8 @@
 // API Service for connecting to Spring Boot backend
+import { API_URL } from '../config';
+
+
+// API Service for connecting to Spring Boot backend
 // Change this to your backend URL
 const API_BASE_URL = 'http://localhost:8080/api';
 
