@@ -1,8 +1,61 @@
 {
-  "hash": "70dd53b2",
+  "hash": "1ada89ab",
   "configHash": "eb342198",
-  "lockfileHash": "e3b0c442",
-  "browserHash": "844ae2fb",
-  "optimized": {},
-  "chunks": {}
+  "lockfileHash": "f51d6c47",
+  "browserHash": "e6e735f7",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "65140aba",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "4889de76",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "72989c08",
+      "needsInterop": true
+    },
+    "lucide-react": {
+      "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "22403ecb",
+      "needsInterop": false
+    },
+    "date-fns": {
+      "src": "../../node_modules/date-fns/index.js",
+      "file": "date-fns.js",
+      "fileHash": "30f8d52d",
+      "needsInterop": false
+    },
+    "recharts": {
+      "src": "../../node_modules/recharts/es6/index.js",
+      "file": "recharts.js",
+      "fileHash": "12e0fa86",
+      "needsInterop": false
+    },
+    "uuid": {
+      "src": "../../node_modules/uuid/dist/index.js",
+      "file": "uuid.js",
+      "fileHash": "7ddc63d5",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-7Q6TIFVT": {
+      "file": "chunk-7Q6TIFVT.js"
+    },
+    "chunk-HZBLV2U7": {
+      "file": "chunk-HZBLV2U7.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
 }
